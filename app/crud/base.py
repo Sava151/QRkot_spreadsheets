@@ -62,8 +62,8 @@ class CRUDBase:
         for field in update_data:
             setattr(db_obj, field, update_data[field])
 
-        if (db_obj.invested_amount >= db_obj.full_amount
-                and not db_obj.fully_invested):
+        if (db_obj.invested_amount >= db_obj.full_amount and not
+                db_obj.fully_invested):
             db_obj.fully_invested = True
             db_obj.close_date = datetime.now(timezone.utc)
 
