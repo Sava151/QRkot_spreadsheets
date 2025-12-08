@@ -17,7 +17,7 @@ router = APIRouter()
 
 @router.get(
     '/',
-    response_model=list[dict[str, str]],
+    response_model=dict[str, str],
     dependencies=[Depends(current_superuser)],
 )
 async def get_report(
@@ -36,4 +36,7 @@ async def get_report(
         charity,
         wrapper_services
     )
-    return charity
+    spreadsheet_url = f"https://docs.google.com/spreadsheets/d/{spreadsheetid}"
+    return {
+        'spreadsheet_url': spreadsheet_url
+    }
