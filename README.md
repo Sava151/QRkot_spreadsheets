@@ -59,6 +59,11 @@ python --version
 pip install -r requirements.txt
 ```
 ### Запустить проект
+##Создайте файл .env:
+```
+DATABASE_URL=postgresql+asyncpg://user:password@localhost/dbname
+SECRET=your_secret_key
+```
 ```
  alembic upgrade head
 ```
